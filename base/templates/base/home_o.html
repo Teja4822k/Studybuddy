@@ -10,8 +10,6 @@
 </style>
 
 
-   
-
 <div class = "home-container">
 
     <div>
@@ -21,7 +19,7 @@
 <div>
 
     <h5> {{room_count}} rooms available </h5>
-    <a href="{% url 'create-room'%}"> Create Room </a>
+    <a href="{% url 'create-room' %}"> Create Room </a>
     {% include 'base/feed_component.html' %}
 
 </div>

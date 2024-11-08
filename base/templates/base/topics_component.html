@@ -8,9 +8,9 @@
       </li>
       {% for topic in topics %}
       <li>
-        <a href="{% url 'home' %}?q={{ topic.name }}">{{ topic.name }}<span>{{ topic.room_set.all.count }}</span></a>
+        <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}<span>{{topic.room_set.all.count}}</span></a>
       </li>
-     {%endfor%}
+     {% endfor %}
     </ul>
     <a class="btn btn--link" href="topics.html">
       More
