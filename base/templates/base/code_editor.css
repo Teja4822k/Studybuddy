@@ -1,0 +1,54 @@
+
+
+.code-execution-col label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #cccccc;
+}
+
+.code-select,
+.code-editor,
+.code-input,
+.code-output {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #1e1e2f;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+.code-editor {
+  height: 350px; /* 🧠 More space for code */
+}
+
+.code-input,
+.code-output {
+  height: 1000px; /* ⬆️ Slightly larger */
+  resize: vertical;
+}
+
+.code-select {
+  font-size: 16px;
+  height: 45px;
+  background-color: #2e2e3e;
+  color: #ffffff;
+}
+
+.run-btn {
+  margin-top: 24px;
+  padding: 14px 28px;
+  font-size: 16px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.run-btn:hover {
+  background-color: #357ab7;
+}

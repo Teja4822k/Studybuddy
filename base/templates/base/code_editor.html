@@ -1,0 +1,61 @@
+
+    <form id="codeForm" method="POST" action="{% url 'run-code' %}">
+      {% csrf_token %}
+     
+        <!-- <div class="activities"> -->
+        <div class="activities__header">
+          <label for="language">Language</label>
+          <select name="language" id="language" class="code-select">
+            <option value="python">Python</option>
+            <option value="cpp">C++</option>
+            <option value="java">Java</option>
+            <option value="javascript">JavaScript</option>
+          </select>
+        </div>
+        <!-- </div> -->
+        
+  
+        <div class="code-execution-col">
+          <div><label for="code">Code Editor</label></div>
+          <textarea name="code" id="code" placeholder="Write your code here..." class="code-editor"></textarea>
+        </div>
+  
+        <div class="code-execution-col">
+           <div><label for="code">Input</label></div>
+          <textarea name="input" id="input" placeholder="Enter input here..." class="code-input"></textarea>
+        </div>
+  
+        <div class="code-execution-col">
+           <div><label for="code">Output</label></div>
+          <textarea id="output" placeholder="Output will appear here..." readonly class="code-output"></textarea>
+        </div>
+        
+      <button type="submit" class="run-btn">Run Code</button>
+      
+    </form>
+
+  
+  <script>
+    document.getElementById("codeForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+    
+        const formData = new FormData(this);
+        
+        fetch("{% url 'run-code' %}", {
+            method: "POST",
+            headers: {
+                'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            const outputArea = document.getElementById("output");
+            outputArea.value = data.output || data.error || "No output";
+        })
+        .catch(err => {
+            document.getElementById("output").value = "Error connecting to server.";
+            console.error(err);
+        });
+    });
+ </script>
